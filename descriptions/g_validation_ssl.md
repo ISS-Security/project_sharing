@@ -25,3 +25,5 @@ latest code for the app client at:
 3. Enforce SSL connections
   - Use the `rack-ssl-enforcer` gem to enforce SSL connections on *production* servers (won't work during development/testing)
   - Enforce SSL for both your API and your web application
+
+Deploy your Web application to Heroku this week: we have fixed most of the major security vulnerabilities, but a few issues still remain for future weeks.

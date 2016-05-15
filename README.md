@@ -13,5 +13,5 @@ We will go through the process of developing a secure application that:
 - [C: Database Hardening: DB Vulnerabilities and Encryption](descriptions/c_db_hardening.md)
 - [D: Secure User Accounts: Passwords and Associations](descriptions/d_secure_accounts.md)
 - [E: Deployed API + Interface Client](descriptions/e_interface_client.md)
-- F: Token Based Authentication
+- [F: Token Based Authentication](descriptions/f_token_authentication.md)
 - [G: Form Validation and SSL Enforcement](descriptions/g_validation_ssl.md)
