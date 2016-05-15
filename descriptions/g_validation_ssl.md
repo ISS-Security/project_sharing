@@ -2,8 +2,7 @@
 
 This week we are validating user input coming from web forms, and enforcing
 SSL connections between essential parts of our architecture. Take a look at the
-latest code for the app client at:
-  - [Interface Client](https://github.com/ISS-Security/configshare-app/tree/3-validation_ssl)
+[latest code for the app client](https://github.com/ISS-Security/configshare-app/tree/3-validation_ssl).
 
 1. Validating Form input
   - Use the `dry-validation` gem to create validation schema for your views
