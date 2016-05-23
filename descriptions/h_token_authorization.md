@@ -27,11 +27,9 @@ For example code, take a look at the following branches of the API and App:
   - Store API `auth_token` in user session cookie along with regular account information
   - Send `auth_token` to API in every request as `HTTP_AUTHENTICATION` header: `'Bearer <TOKEN>'`
   - Allow users to see their own token in their account page
-3. OPTIONAL: hardened and granular authorization
-  - Replace `username` from API routes with `id` of user
-    - this makes it harder for anyone who has stolen a token to call API (they won't know the `id`)
-    - effectively means that an attacker would have to know something (`id`) and have something (`auth_token`)
-  - Add privileges to `auth_token`
-    - Have a new field in token hash called `privileges`, with values such as `'read'`, `'read write'`, etc.
-    - Check 'write' privileges if API route changes data (e.g., all POST resource routes)
-    - This allows us to create tokens for read only access if needed
+3. API+App: Add features
+  - Add features in App to view all resources:
+    - Users can see their account information
+    - Users can see all resources they own
+    - Users can see all resources they are sharing with others
+  - Make sure all new API routes you need use token based authorization
