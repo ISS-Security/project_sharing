@@ -3,8 +3,8 @@
 This week will implement the beginnings of authorization, and we will use tokens once again. Note that all the critical authorization decisions will be done on the API side. Thus, the API must create and send an encrypted token that must be returned by client applications on every request.
 
 For example code, take a look at the following branches of the API and App:
--
--
+- [API: authorized_access](https://github.com/ISS-Security/configshare/tree/5-authorized_access)
+- [App: authorized_access](https://github.com/ISS-Security/configshare-app/tree/4-authorized_access)
 
 1. API: Send and Require an Authentication Token from Client Apps
   - Create `JWE` or such library class to encrypt/decrypt JWT tokens for API
