@@ -16,3 +16,4 @@ We will go through the process of developing a secure application that:
 - [F: Token Based Authentication](descriptions/f_token_authentication.md)
 - [G: Form Validation and SSL Enforcement](descriptions/g_validation_ssl.md)
 - [H: Token Based Authorization](descriptions/h_token_authorization.md)
+- [I: OAuth Protocol and Single-Table Inheritance](descriptions/i_oauth_protocol.md)
