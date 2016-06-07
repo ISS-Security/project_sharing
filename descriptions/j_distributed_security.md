@@ -4,9 +4,9 @@ Our last security tasks of the semester is to help our API trust our client Appl
 
 1. Signed Client - API Routes that cannot have an auth_token must only accept signed requests
   - Examples of routes in the demonstration Config-Share API:
-    - `POST '/api/v1/accounts/?’`
-    - `POST '/api/v1/accounts/authenticate’`
-    - `GET '/api/v1/github_account’`
+    - `POST '/api/v1/accounts`
+    - `POST '/api/v1/accounts/authenticate`
+    - `GET '/api/v1/github_account`
   - Create `Ed25519` public and secret keys for your Application
     - You might find it helpful to create a Rake task that generates asymmetric keys for you
     - Store your App's secret key in its `config_env.rb`
