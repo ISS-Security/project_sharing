@@ -2,6 +2,10 @@
 
 Our last security tasks of the semester is to help our API trust our client Application, and to ask the user's browser to help prevent cross-site scripting and code injection.
 
+Relevant code branches for App and API:
+- App: [8-xss_protection](https://github.com/ISS-Security/configshare-app/tree/8-xss_protection)
+- API: [8-authorize_client_app](https://github.com/ISS-Security/configshare/tree/8-authorize_client_app)
+
 1. Signed Client - API Routes that cannot have an auth_token must only accept signed requests
   - Examples of routes in the demonstration Config-Share API:
     - `POST '/api/v1/accounts`
