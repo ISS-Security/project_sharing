@@ -18,3 +18,4 @@ We will go through the process of developing a secure application that:
 - [H: Token Based Authorization](descriptions/h_token_authorization.md)
 - [I: OAuth Protocol and Single-Table Inheritance](descriptions/i_oauth_protocol.md)
 - [J: Signed Apps and XSS Prevention](descriptions/j_distributed_security.md)
+- [K: Final Presentations](descriptions/k_final_presentation.md)
