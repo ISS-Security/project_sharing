@@ -1,4 +1,4 @@
-# I. Single Sign-On Using OAuth an Single Table Inheritance
+# Single Sign-On Using OAuth an Single Table Inheritance
 
 This week we will implement single sign-on (SSO) to allow users to login using their Github credentials. But first, we must setup our database (API) to handle two types of accounts: regular accounts (Account) and SSO accounts (SSOaccount).
 

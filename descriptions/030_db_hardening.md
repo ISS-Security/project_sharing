@@ -1,4 +1,4 @@
-## C. Database Hardening
+## Database Hardening
 
 Using a database solves many of our security problems and also introduces new problems. This week we will advance our database driven system by preventing common vulnerabilities and introducing encryption. See the [`db_hardening` branch of our demo code](https://github.com/ISS-Security/configshare/tree/2-db_hardening).
 

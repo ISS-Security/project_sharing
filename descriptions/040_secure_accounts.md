@@ -1,4 +1,4 @@
-## D. Secure User Accounts
+## Secure User Accounts
 
 Allowing user accounts creates many complexities in our design. Let's try to create and integrate secure accounts for users into our database design. See the [`secure_accounts` branch of our demo code](https://github.com/ISS-Security/configshare/tree/3-secure_accounts).
 

@@ -1,4 +1,4 @@
-# E. Deployed API and Interface Client
+# Deployed API and Interface Client
 
 This week are are deploying our APIs into live production and building up our interface as a web client application. We are interested in seeing if we can get users to login for now! Take a look at the latest code at:
   - [Deployed API](https://github.com/ISS-Security/configshare)

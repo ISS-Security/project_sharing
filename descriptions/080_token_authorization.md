@@ -1,4 +1,4 @@
-# H. Token Based Authorization
+# Token Based Authorization
 
 This week will implement the beginnings of authorization, and we will use tokens once again. Note that all the critical authorization decisions will be done on the API side. Thus, the API must create and send an encrypted token that must be returned by client applications on every request.
 

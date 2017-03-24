@@ -1,8 +1,8 @@
-## A. Basic File Store API
+## Basic File Store API
 
 This week your team will create the beginnings of an API to perform your service
 
-1. Create a basic API based on the project we saw in class [(see the `0_filestore_api` branch of the in-class demo app)](https://github.com/ISS-Security/configshare/tree/0_filestore_api)
+1. Create a basic API based on the project we saw in class (see the `0_filestore_api` branch of the in-class demo app)
   - **Do NOT clone or fork from the class demo project!**
   - Create the appropriate resource class for your project in the `models/` folder
   - Create an appropriately named Sinatra-based API class in `app.rb`

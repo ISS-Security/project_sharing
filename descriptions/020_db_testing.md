@@ -1,4 +1,4 @@
-## B. Database and Testing
+## Database and Testing
 
 We will start addressing some of the security issues we found by adding a database to our application and writing tests for it. You can refer to the [`db_testing` branch of the demo code we saw in class](https://github.com/ISS-Security/configshare/tree/1_db_testing).
 

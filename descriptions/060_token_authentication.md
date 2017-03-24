@@ -1,4 +1,4 @@
-# F. Token Based Authentication
+# Token Based Authentication
 
 This week we will use tokens (JWT) in our authentication process. You'll see that tokens allow us to securely store information about the state of the session on the client's side. See the latest version of our [application side code](https://github.com/ISS-Security/configshare-app/tree/2-token_authentication).
 

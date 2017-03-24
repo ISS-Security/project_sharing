@@ -1,4 +1,4 @@
-# G. Validated Form Input and Enforce SSL
+# Validated Form Input and Enforce SSL
 
 This week we are validating user input coming from web forms, and enforcing
 SSL connections between essential parts of our architecture. Take a look at the
