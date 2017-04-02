@@ -1,22 +1,27 @@
 ## Basic File Store API
 
-This week your team will create the beginnings of an API to perform your service
+This week your team will create the beginnings of an API to perform your service. Make sure you create a Github repo for your team that all members can work on (store the repo under your team's organization and try to ensure that your teammates all contribute in some way).
 
-1. Create a basic API based on the project we saw in class (see the `0_filestore_api` branch of the in-class demo app)
-  - **Do NOT clone or fork from the class demo project!**
+1. Create a basic resource entity class
+  - Choose the most important resource or entity related to your project idea
+    - e.g., File, Image, URL, etc.
+    - Do NOT pick 'User' for now (we will discuss users in class later)
   - Create the appropriate resource class for your project in the `models/` folder
-  - Create an appropriately named Sinatra-based API class in `app.rb`
-  - Create the appropriate setup files (`Gemfile`, `config.ru`, `Procfile`)
-  - Store resources for users in a `db/` folder
+    - the `initialize` method should create new objects of this resource
+    - make sure your model has methods to `save` a new entity, `find` an existing entity, find `all` entitites, and to convert the entire resource `to_json`.
+    - Store and retrieve resources as json text files in a `db/` folder
+    - You might have to encode some attributes (e.g., large text) as Base64
 
-2. Create HTTP routes for your API that users can access
-  - one GET route to return an index of all resources (e.g., GET `/api/v1/resources`, where 'resources' is the name of your particular resources: files/pictures/passwords, etc.)
-  - one GET route to return details of a specific resource (e.g., GET `/api/v1/resources/[ID].json`) to return jsonified resource with ID (metadata + data)
-  - OPTIONAL: one GET route to return a particular attribute of a resource (e.g., GET `/api/v1/resources/[ID]/attribute`, where 'attribute' is a particular attribute for your resource: document/photo/password, etc.)
-  - OPTIONAL: one POST route to create a new resource, given json information about it (e.g., POST `/api/v1/resources`)
+2. Create a Web API
+  - Create an appropriately named Sinatra-based API class in `app.rb`
+  - Create the appropriate setup files (`Gemfile`, `config.ru`) we discussed in class
+  - create one POST route to create a new resource, given json information about it (e.g., `POST /api/v1/[resources]`), where '[resources]' is the name of your particular resources: files/pictures, etc.)
+  - create one GET route to return details of a specific resource (e.g., `GET /api/v1/[resources]/[ID].json`) to return jsonified resource with ID (metadata + data)
+  - create one GET route to return an index of all resources (e.g., `GET /api/v1/[resources]` would return IDs of all resources as json)
 
 3. Identify security issues your application currently faces
-  - Think about weaknesses in confidentiality, integrity, authentication, authorization, availability,
+  - Think about weaknesses in confidentiality, integrity, authentication, authorization, availability, non-repudiation
+    - in particular, think how a hacker might try to infiltrate the Web API you have created so far
   - Create **Github Issues** for these vulnerabilities
     - create one issue for each vulnerability
     - detail what the vulnerability is (what is at risk)
