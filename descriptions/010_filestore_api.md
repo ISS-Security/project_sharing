@@ -1,6 +1,6 @@
 ## Basic File Store API
 
-This week your team will create the beginnings of an API to perform your service. Make sure you create a Github repo for your team that all members can work on (store the repo under your team's organization and try to ensure that your teammates all contribute in some way).
+This week your team will create the beginnings of an API to perform your service. Make sure you create a Github repo for your team that all members can work on (store the repo under your team's organization and try to ensure that your teammates all contribute in some way). For this week's coding, you can refer to the [`0_filestore_api` branch of the demo code we saw in class](https://github.com/ISS-Security/configshare-api/tree/0_filestore_api).
 
 1. Create a basic resource entity class
   - Choose the most important resource or entity related to your project idea
@@ -18,6 +18,7 @@ This week your team will create the beginnings of an API to perform your service
   - create one POST route to create a new resource, given json information about it (e.g., `POST /api/v1/[resources]`), where '[resources]' is the name of your particular resources: files/pictures, etc.)
   - create one GET route to return details of a specific resource (e.g., `GET /api/v1/[resources]/[ID].json`) to return jsonified resource with ID (metadata + data)
   - create one GET route to return an index of all resources (e.g., `GET /api/v1/[resources]` would return IDs of all resources as json)
+  - Create a helpful README.md with instructions on how to use your API, including all routes (keep this README up-to-date throughout the project)
 
 3. Identify security issues your application currently faces
   - Think about weaknesses in confidentiality, integrity, authentication, authorization, availability, non-repudiation
