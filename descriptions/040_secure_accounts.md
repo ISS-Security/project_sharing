@@ -1,28 +1,43 @@
 ## Secure User Accounts
 
-Allowing user accounts creates many complexities in our design. Let's try to create and integrate secure accounts for users into our database design. See the [`secure_accounts` branch of our demo code](https://github.com/ISS-Security/configshare/tree/3-secure_accounts).
+Allowing user accounts creates many complexities in our design. Let's try to create and integrate secure accounts for users into our database design. See the [`secure_accounts` branch of our demo code](https://github.com/ISS-Security/configshare-api/tree/3_secure_accounts).
 
-1. Switching to SimpleBox to handle nonces
-  - Change your migrations to remove the nonce columns from your tables
-  - Update your security module (rename it `SecureModel`) to return `SimpleBox`'s ciphertext+nonce.
-  - Update your models so they don't have to worry about nonces anymore!
-2. User accounts: let's create/update accounts for our users
-  - First, consider what to call your user accounts based on our class discussion
-  - Create a migration/model for user accounts
-  - Add a hashed password field to your user accounts:
+1. User accounts: let's create/update accounts for users
+  - Create a migration and model (call it `Account`) for user accounts
+  - Implement salted, hashed passwords using key stretching
     - Make sure your migrations add a hashed password field
-    - Give `SecureModule` new functions to hash passwords as well
-    - Give your user account model the ability to set and *check* (not get!) passwords
-  - Consider any many-to-many relationships that arise in your database design
-    - add any required many-to-many relationships in your models
-    - create required *join tables*
-    - use association_dependencies, before/after hooks to maintain table integrity
-3. Create service objects to remove database code from controllers
+    - Give your `SecureDB` library a `new_salt` and `hash_password` methods
+    - Give your user account model methods to set and *check* (not get!) passwords
+2. Associations
+  - add any many-to-many relationships using *join tables*
+  - use association_dependencies to maintain table integrity
+3. Use service objects to cleanup controllers and reuse functionality
   - Create service objects wherever you find you have to write several lines of code to get around mass assignment restrictions (e.g., on new/create of models)
-  - Can you think of other places where we could extract code away from our controllers or models? Add Github issues with suggestions to clean up our code. We will spend some time discussing this before deploying our APIs into production.
-4. Project structure cleanup
-  - Breakup your `app.rb` into multiple controller files and move them into a `controllers/` subfolder
-  - Create an `init.rb` in each of your subfolders where you have active code, and require those `init.rb` files whenever you need to load major parts of your application
-5. Update your Github issues
+  - Reuse your service objects in tests or other places
+  - Can you think of other places where we could extract code away from our controllers or models? Add Github issues with suggestions to clean up our code.
+4. Implement a database seeding task
+  - Use the `sequel-seed` gem to create a `rake db:seed` task for your API
+  - Put your seeding code in `seeds/<date>_<description>.rb` files (example, `20170419_create_all.rb`)
+  - Ensure your code is run in a `run` method in a `Sequel.seed(:development)` call
+  - Make sure that anyone who wants to collaborate with your team can get setup using:
+  ```
+  bundle install
+  rake db:migrate
+  rake db:seed
+  ```
+5. Deploy your API to the cloud
+  - Each team member:
+    - Create a Heroku account for each team member
+    - Add your SSH public key to your account
+    - Install [Heroku command line tools](https://devcenter.heroku.com/articles/heroku-cli): this gives you a command line `heroku` command
+  - Use `heroku` command to create a domain name for your API (e.g., `configshare-api`)
+  - Put necessary environment variables on Heroku project settings
+  - Bundle the `pg` gem for production only (put the `.bundle/` folder in `.gitignore`)
+  - Ask Heroku to add a PostgreSql server for your API
+  - Push your API's master branch to Heroku to deploy it, and migrate your database
+  - Check if your API is publicly available online!
+  - Add all teammates as collaborators to this project
+
+ Lastly, update your Github issues
   - Create Github Issues for any new vulnerabilities that you can think of
   - Close any previous issues that we have already solved (if you feel we haven't solved them, tell us why in class)
