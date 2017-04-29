@@ -1,23 +1,19 @@
-# Deployed API and Interface Client
+# Interface and Sessions
 
-This week are are deploying our APIs into live production and building up our interface as a web client application. We are interested in seeing if we can get users to login for now! Take a look at the latest code at:
-  - [Deployed API](https://github.com/ISS-Security/configshare)
-  - [Interface Client](https://github.com/ISS-Security/configshare-app)
+This week are building up our interface as a web client application. We are interested in seeing if we can get users to login for now! Take a look at the latest code at:
+  - [Deployed API](https://github.com/ISS-Security/configshare-api/tree/4_authenticate_accounts)
+  - [Interface Client](https://github.com/ISS-Security/configshare-app/tree/1_login_session)
 
 1. Updating our API Structure
-  - Organizing our crypto code
-    - After using SimpleBox, your mixed in crypto module should no longer need to access attributes of your model; it can become a separate library.
-    - Try creating a `SecureDB` class in a new `lib/` folder
-    - This new class can implement encrypt, decrypt, and salting functions (see example API project)
   - Try to see if all your API routes can use service objects
     - Only do parameter parsing in your controller, and then call a service object
     - After you have created many service objects, your `services/` folder should give a good idea of what your project does
-  - Add a route for users to be authenticated: `/api/v1/<username>/authenticate?password=<password>`
+  - Add a POST route to your API to authenticate credentials `post '/api/v1/accounts/authenticate'`
     - If username/password is correct, return JSONified user information
-    - Otherwise, return a 401 error code
+    - Otherwise, return a 403 error code
 2. Create a simple client interface application
   - Create controllers, services, and Slim views for:
-    - a layout template with navigation bar (Home/login/register or Home/account/logout)
+    - a layout template with navigation bar (home/login/register or home/account/logout)
     - a home page
     - a login page
     - an account overview page for logged in users
@@ -26,9 +22,15 @@ This week are are deploying our APIs into live production and building up our in
     - Use a cookie to store the logged in user's username and other information
   - Allow users to logout by destroying their cookie and any objects with their information
   - Allow logged in users to see their account information
-3. Create Github issues for what security weaknesses our interface / API face
-4. IMPORTANT: do some research on how Rack cookies with a 'secret' are encoded
-  - See the [Ruby documentation](http://www.rubydoc.info/github/rack/rack/Rack/Session/Cookie) to see how to specify a 'secret' to add security to encoded cookies
-  - Do some research (maybe look at the source code for Rack) to see how the 'secret' is used to encode cookies.
-  - Add a description of how secured cookies are encoded as a github issues.
-  - Also add to the issue any thoughts on vulnerabilities of this method.
+3. Add flash messages for errors and notices
+  - Use the `rack-flash3` gem to create flash messages
+  - Add a flash message bar to your `layout.slim`
+  - Create CSS file in `/public` folder for `:error` and `:notice` styles
+    - Set the location of your public directory for Sinatra
+  - Provide flash notices for form errors and important transitions (e.g., logout)
+4. Enforce SSL connections
+  - Use the `rack-ssl-enforcer` gem to enforce SSL connections on *production* servers (won't work during development/testing)
+  - Enforce SSL for both your API and your web application
+5. Examine the security of your solution so far
+  - Create Github issues for what security weaknesses our interface / API face
+  - Close any old issues that have been resolved now
