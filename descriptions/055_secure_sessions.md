@@ -22,7 +22,7 @@ See the latest version of our demo code:
 3. Create a registration workflow that verifies user emails
   - Allow users to create accounts with only username and email
   - Verify the email address by sending an email
-    - Use Pony + Sendgrid to send the verification email with a link back to our site
+    - Use Pony + SendGrid to send the verification email with a link back to our site
     - Use your secure messaging library to create an encrypted token to embed the new account information in the link
   - Once users return using their verification link, ask for password + password confirmation
   - Create users who have finished the entire process (use a service object)
