@@ -30,6 +30,8 @@ This week we will introduce authorization to our system, using authorization tok
     - Allow users to see their own token in their account page
 
 4. API+App: Add features in App to view all resources
-    - Users can see their account information
-    - Users can see all resources they own
-    - Users can see all resources they are shared with others
+  - Ensure your API not only allows for authentication, but can now create/find one or more resources that belong to accounts
+  - Ensure that your Web App has views to create/retrieve resources
+  - Users can see their account information
+  - Users can see all resources they own
+  - Users can see all resources they are shared with others
