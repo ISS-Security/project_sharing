@@ -1,4 +1,4 @@
-## Database and Testing
+## Relational Databases and Testing
 
 We will start addressing some of the security issues we found by adding a database to our application and writing tests for it. You can refer to the [`1_db_testing` branch of the demo code we saw in class](https://github.com/ISS-Security/configshare-api/tree/1_db_testing).
 

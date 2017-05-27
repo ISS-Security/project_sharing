@@ -1,4 +1,4 @@
-# Validated Form Input and Enforce SSL
+# Policies and Validation
 
 This week we will create centralized resource policies, and validate user input coming from web forms. See the latest version of our demo project:
 - [Web API: auth_policy](https://github.com/ISS-Security/configshare-api/tree/6_auth_policy)

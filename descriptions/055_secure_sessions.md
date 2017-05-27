@@ -1,4 +1,4 @@
-# Secure Sessions
+# Secure Sessions and Registration
 
 This week we will secure the storage of session state across our system and on the client machine.
 See the latest version of our demo code:

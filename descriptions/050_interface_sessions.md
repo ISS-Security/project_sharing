@@ -1,4 +1,4 @@
-# Interface and Sessions
+# Client Interface and Sessions
 
 This week are building up our interface as a web client application. We are interested in seeing if we can get users to login for now! Take a look at the latest code at:
   - [Deployed API](https://github.com/ISS-Security/configshare-api/tree/4_authenticate_accounts)

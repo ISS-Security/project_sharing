@@ -1,4 +1,4 @@
-# Single Sign-On Using OAuth an Single Table Inheritance
+# Single Sign-On Using OAuth
 
 This week we will implement single sign-on (SSO) to allow users to login using their Github credentials. But first, we must setup our database (API) to handle two types of accounts: regular accounts (Account) and SSO accounts (SSOaccount).
 
@@ -31,5 +31,5 @@ This week we will implement single sign-on (SSO) to allow users to login using t
   - Choose from the options we saw in class of how to distribute these tasks between your App and your API
     - ~~option 1: App handles everything and asks API to find/create Github account~~
     - option 2: App completes authorization and sends access_token to API, API uses access_token to retrieve user data from Github
-    - option 3: API handles everything and returns Github account to App
+    - option 3: App starts process until callback, then hands code to API; API uses code to retrieve access_token and get user data
   - Make sure at the end that your API stores a new `SsoAccount` if one does not exist for an SSO login
