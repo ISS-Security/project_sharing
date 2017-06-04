@@ -5,7 +5,7 @@ This final week we will present our semester projects and share our thoughts.
 Here are some criteria for your final presentations:
 
 1. Presentation Time
-  - 15 Minutes Presentation
+  - 20 Minutes Presentation
   - Please share presentation duties among your teammates
 2. Outline
   - Introduction

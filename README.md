@@ -16,5 +16,5 @@ Follow the activities below as the semester progresses.
 - [H: Token Based Authorization](descriptions/060_token_authorization.md)
 - [I: Policies and Validation](descriptions/070_policies_validation_ssl.md)
 - [J: OAuth Protocol and Single-Table Inheritance](descriptions/090_oauth_protocol.md)
-- [K: Signed Clients and XSS Prevention](descriptions/100_distributed_security.md)
+- [K: Signed Clients and XSS Prevention](descriptions/100_client_side_security.md)
 - [L: Final Presentations](descriptions/110_final_presentation.md)
