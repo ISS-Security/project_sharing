@@ -8,7 +8,7 @@ Follow the activities below as the semester progresses.
 ## Weekly breakdown of the semester project:
 - [A: Brainstorming and Setup](descriptions/005_brainstorm_setup.md)
 - [B: Basic File Store Web API](descriptions/010_filestore_api.md)
-- [C: Relational Databases and Testing](descriptions/020_db_testing.md)
+- [C: Relational Database and ORM](descriptions/020_db_testing.md)
 - [D: Database Hardening](descriptions/030_db_hardening.md)
 - [E: Secure User Accounts](descriptions/040_secure_accounts.md)
 - [F: Client Interface and Sessions](descriptions/050_interface_sessions.md)
