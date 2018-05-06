@@ -7,19 +7,22 @@ Allowing user accounts creates many complexities in our design. Let's try to cre
   - Implement salted, hashed passwords using key stretching
     - Make sure your migrations add a hashed password field
     - Give your `SecureDB` library a `new_salt` and `hash_password` methods
+    - Use either `scrypt` or `argon2` hashing from the `rbnacl` package
     - Give your user account model methods to set and *check* (not get!) passwords
-2. Associations
-  - add any many-to-many relationships using *join tables*
-  - use association_dependencies to maintain table integrity
+2. Many-to-Many Associations
+  - add any many-to-many relationships you need using *join tables*
+  - create relationships in in both directions
+  - name your relationships approrpiately in each direction
+    (e.g., `collaborators` vs. `collaborations`)
+  - use association_dependencies to maintain table integrity (use `destroy` or `nullify` to specify how to propagate resource destruction)
 3. Use service objects to cleanup controllers and reuse functionality
-  - Create service objects wherever you find you have to write several lines of code to get around mass assignment restrictions (e.g., on new/create of models)
-  - Reuse your service objects in tests or other places
-  - Can you think of other places where we could extract code away from our controllers or models? Add Github issues with suggestions to clean up our code.
+  - Create service objects wherever you find you have to write chained methods multiple lines to create or change resources
+  - Reuse your service objects in controlers, tests, seeding
 4. Implement a database seeding task
   - Use the `sequel-seed` gem to create a `rake db:seed` task for your API
-  - Put your seeding code in `seeds/<date>_<description>.rb` files (example, `20170419_create_all.rb`)
+  - Put your seeding code in `seeds/<date>_<description>.rb` files (example, `20180503_create_all.rb`)
   - Ensure your code is run in a `run` method in a `Sequel.seed(:development)` call
-  - Make sure that anyone who wants to collaborate with your team can get setup using:
+  - Make sure that anyone who wants to collaborate with your team can get setup by simply using:
   ```
   bundle install
   rake db:migrate
