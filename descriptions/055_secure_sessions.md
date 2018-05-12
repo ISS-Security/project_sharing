@@ -1,14 +1,13 @@
 # Secure Sessions and Registration
 
-This week we will secure the storage of session state across our system and on the client machine.
-See the latest version of our demo code:
-- [Web application code](https://github.com/ISS-Security/configshare-app/tree/2_secure_sessions)
-- [Web API code](https://github.com/ISS-Security/configshare-api/tree/4_authenticate_accounts)
+This week we will secure the storage of session state across our system and on the client machine. See the latest version of our demo code.
 
 1. Let's update some of the security choices we made last week
-  - Let's switch our API to forbid insecure HTTP access – it should only accept HTTPS scheme from requests
   - Try adding tests for the web application's service objects: *stub* any outward HTTP requests to the API
   - If you are using cookies for any non-session purposes, make sure to implement a strong session secret nonce
+1. Enforce SSL connections for Web App
+  - Use the `rack-ssl-enforcer` gem to enforce SSL connections on *production* servers (won't work during development/testing)
+  - Redirect users to secure HTTPS connections
 2. Let's switch our session storage to server-side pool
   - Provision a Redis machine on Heroku
   - Specify Redis as our application's session store
