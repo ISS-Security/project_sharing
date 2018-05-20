@@ -1,26 +1,33 @@
-# Secure Sessions and Registration
+# Secure Sessions
 
 This week we will secure the storage of session state across our system and on the client machine. See the latest version of our demo code.
 
+1. Deploy your API and App to Heroku
+- API: setup and integrate PostGres database
+- APP: Ensure that it is talking to the deployed API
 
-  - If you are using cookies for any non-session purposes, make sure to implement a strong session secret nonce
-1. Enforce SSL connections for Web App
-  - Use the `rack-ssl-enforcer` gem to enforce SSL connections on *production* servers (won't work during development/testing)
-  - Redirect users to secure HTTPS connections
-2. Let's switch our session storage to server-side pool
-  - Provision a Redis machine on Heroku
-  - Specify Redis as our application's session store
-3. Use encrypted session variables
-  - Create a secure messaging library for all outgoing messages
-    - Create a class in `/lib` that can `encrypt` and `decrypt` any message
-    - it should be able to `encrypt` and `decrypt` any message using a secret `MSG_KEY`
-  - Create a secure session library
-    - Create a class in `/lib` that can securely `set` and `get` session variables
-    - Use the NaCl library (`rbnacl/libsodium`) for all cryptography
-3. Create a registration workflow that verifies user emails
-  - Allow users to create accounts with only username and email
-  - Verify the email address by sending an email
-    - Use Pony + SendGrid to send the verification email with a link back to our site
-    - Use your secure messaging library to create an encrypted token to embed the new account information in the link
-  - Once users return using their verification link, ask for password + password confirmation
-  - Create users who have finished the entire process (use a service object)
+2. Enforce SSL connections for Web App
+- Use the `rack-ssl-enforcer` gem to enforce SSL connections on *production* servers (will break development/testing)
+- Redirect users to secure HTTPS connections
+  - _warning_ adding an HSTS header to a server's response will tell browsers to never try HTTP again
+
+3. Let's switch our session storage to server-side pool
+- Provision a Redis machine on Heroku
+- Specify Redis as our application's session store
+- If you must store data in cookies for any non-session purposes, make sure to implement a strong session secret nonce
+
+4. Encrypt session data
+- Create a _secure messaging_ library for all outgoing messages
+  - Create a class in `/lib` that can `encrypt` and `decrypt` any message
+  - Use a secret key stored in environment variable `MSG_KEY`
+  - Use the NaCl library (`rbnacl/libsodium`) for all cryptography
+- Update _secure session_ library to provide encryption for session data
+  - Create a class in `/lib` that can securely `set` and `get` session variables
+  - Use the secure messaging library for all crypto – your secure session library should contain no crypto code
+
+5. APP + API: Create a very basic (and risky) registration workflow
+  - APP: Allow users to register accounts
+    - Accept posts from a registration form with email, username, and password
+    - Use a service object to post the data to your API
+  - API: Create users given their email, username, and password
+  - _Notice_: We have not performed any verification of account details

@@ -12,7 +12,7 @@ Follow the activities below as the semester progresses.
 - [D: Database Hardening](descriptions/030_db_hardening.md)
 - [E: Secure User Accounts](descriptions/040_secure_accounts.md)
 - [F: User Authentication and Sessions](descriptions/050_authenticate_sessions.md)
-- [G: Secure Session and Registration](descriptions/055_secure_sessions.md)
+- [G: Secure Session](descriptions/055_secure_sessions.md)
 - [H: Token Based Authorization](descriptions/060_token_authorization.md)
 - [I: Policies and Validation](descriptions/070_policies_validation_ssl.md)
 - [J: OAuth Protocol and Single-Table Inheritance](descriptions/090_oauth_protocol.md)
