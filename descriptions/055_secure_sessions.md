@@ -2,8 +2,7 @@
 
 This week we will secure the storage of session state across our system and on the client machine. See the latest version of our demo code.
 
-1. Let's update some of the security choices we made last week
-  - Try adding tests for the web application's service objects: *stub* any outward HTTP requests to the API
+
   - If you are using cookies for any non-session purposes, make sure to implement a strong session secret nonce
 1. Enforce SSL connections for Web App
   - Use the `rack-ssl-enforcer` gem to enforce SSL connections on *production* servers (won't work during development/testing)
