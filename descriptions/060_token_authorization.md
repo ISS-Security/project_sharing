@@ -1,19 +1,18 @@
 # Token Based Authentication
 
-This week we will introduce authorization to our system, using authorization tokens. See the latest version of our demo project:
-- [Web API: authorized_access](https://github.com/ISS-Security/configshare-api/tree/5_auth_token)
-- [Web App: authorized_access](https://github.com/ISS-Security/configshare-app/tree/3_auth_token)
+This week we will introduce email verification and token-based authorization to our system.
 
 1. Create a registration workflow that verifies user emails
 - Allow users to create accounts with only username and email
-- Verify the email address by sending an email
-  - Use Pony + SendGrid to send the verification email with a link back to our site
-  - Use your secure messaging library to create an encrypted token to embed the new account information in the link
+- Verify the email address by sending an email from the API
+  - Use SendGrid API (or gem) to send the verification email with a link back to our site
+  - Use your App's secure messaging library to create an encrypted token containing username/email
+  - Link should contain URL to Web application (not API)
 - Once users return using their verification link, ask for password + password confirmation
-- Create users who have finished the entire process (use a service object)
+- Create users who have finished the entire process
 
-2. Create a secure library to handle authorization tokens
-- Create an `AuthToken` LIBRARY:
+2. Web API: Create a secure library to manage authorization tokens
+- Create an `AuthToken` library:
   - We will need to reuse some security code from our `SecureDB` library
     - Refactor `SecureDB` to extract a `Securable` module that handles all the crypto logic
     - Both `SecureDB` and `AuthToken` should extend `Securable`
@@ -25,7 +24,7 @@ This week we will introduce authorization to our system, using authorization tok
 - Send back an auth token (encrypted account information) along with raw account information whenever an account is authenticated
 - Whenever a route requires accessing an account's resources, check the auth token
   - Create helper methods that verify identify of account identity of token with resource owner
-    - Check token in `HTTP_AUTHENTICATION` header of HTTP request as `'Bearer <TOKEN>'`
+    - Check token in `HTTP_AUTHENTICATION` header of HTTP request has `'Bearer <TOKEN>'`
   - Return error 401 for any suspicious cases:
     - if token is expired
     - if identify of owner in auth token does not match route
@@ -33,13 +32,8 @@ This week we will introduce authorization to our system, using authorization tok
 
 4. Web App: Store and use auth tokens
 - Store auth tokens safely as session information (secure it using `SecureSession`)
-- Return API's auth token on every request
-  - Send auth token to API in every request as `HTTP_AUTHENTICATION` header: `'Bearer <TOKEN>'`
-  - Allow users to see their own token in their account page
+- Send auth token to API in every request as `HTTP_AUTHENTICATION` header: `'Bearer <TOKEN>'`
 
-5. API+App: Add features in App to view all resources
-- Ensure your API not only allows for authentication, but can now create/find one or more resources that belong to accounts
-- Ensure that your Web App has views to create/retrieve resources
-- Users can see their account information
+5. API+App: Add features in App to view index of resources
 - Users can see all resources they own
 - Users can see all resources they are shared with others
