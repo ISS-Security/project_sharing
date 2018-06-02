@@ -14,7 +14,7 @@ Follow the activities below as the semester progresses.
 - [F: User Authentication and Sessions](descriptions/050_authenticate_sessions.md)
 - [G: Secure Session](descriptions/055_secure_sessions.md)
 - [H: Token Based Authorization](descriptions/060_token_authorization.md)
-- [I: Policies and Validation](descriptions/070_policies_validation_ssl.md)
+- [I: Policies and Validation](descriptions/070_policies_validation.md)
 - [J: OAuth Protocol and Single-Table Inheritance](descriptions/090_oauth_protocol.md)
 - [K: Signed Clients and XSS Prevention](descriptions/100_client_side_security.md)
 - [L: Final Presentations](descriptions/110_final_presentation.md)
